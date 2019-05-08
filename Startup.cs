@@ -27,7 +27,16 @@ namespace SampleApp
                 .AddRazorPagesOptions(options =>
                     {
                         options.Conventions
-                            .AddPageApplicationModelConvention("/StreamedSingleFileUpload", 
+                            .AddPageApplicationModelConvention("/StreamedSingleFileUploadPhysical", 
+                                model =>
+                                {
+                                    model.Filters.Add(
+                                        new GenerateAntiforgeryTokenCookieAttribute());
+                                    model.Filters.Add(
+                                        new DisableFormValueModelBindingAttribute());
+                                });
+                        options.Conventions
+                            .AddPageApplicationModelConvention("/StreamedSingleFileUploadDb",
                                 model =>
                                 {
                                     model.Filters.Add(
