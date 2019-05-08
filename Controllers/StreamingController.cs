@@ -24,11 +24,13 @@ namespace FileUploadSample.Controllers
         private readonly AppDbContext _context;
         private readonly long _fileSizeLimit;
         private readonly ILogger<StreamingController> _logger;
-        public readonly string[] _permittedExtensions = 
-            {
-                ".txt", 
-                ".pdf", 
-            };
+
+        public readonly string[] _permittedExtensions =
+        {
+            ".txt",
+            ".xls",
+            ".pdf"
+        };
         private readonly string _targetFilePath;
 
         // Get the default form options so that we can use them to set the default 
